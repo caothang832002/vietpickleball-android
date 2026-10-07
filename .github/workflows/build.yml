@@ -1,0 +1,36 @@
+# Đóng gói app Android VietPickleball (Trusted Web Activity) — chạy trên máy của GitHub mỗi khi đổi cấu hình.
+# Kết quả: file .aab CHƯA KÝ ở mục Releases. Khóa ký không bao giờ đặt trong kho này.
+name: Build Android
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - run: npm install --no-audit --no-fund
+      - run: node build.js twa-manifest.json app
+      - name: Gradle bundleRelease
+        working-directory: app
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon bundleRelease
+      - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=$(node -p "require('./twa-manifest.json').appVersionCode")
+          cp app/app/build/outputs/bundle/release/app-release.aab vietpickleball-unsigned-v$V.aab
+          gh release delete build-$V -y --cleanup-tag || true
+          gh release create build-$V vietpickleball-unsigned-v$V.aab --title "Bản build $V" --notes "Bản CHƯA KÝ. Ký bằng khóa tải lên trước khi đưa lên Google Play."
