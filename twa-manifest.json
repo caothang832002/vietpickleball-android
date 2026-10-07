@@ -1,0 +1,41 @@
+{
+  "packageId": "vn.vietpickleball.app",
+  "host": "vietpickleball.vn",
+  "name": "VietPickleball – Giải đấu & Sân Pickleball",
+  "launcherName": "VietPickleball",
+  "display": "standalone",
+  "themeColor": "#6E3CF3",
+  "navigationColor": "#17102E",
+  "navigationColorDark": "#17102E",
+  "navigationDividerColor": "#17102E",
+  "navigationDividerColorDark": "#17102E",
+  "backgroundColor": "#17102E",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://vietpickleball.vn/assets/icon-512.png",
+  "maskableIconUrl": "https://vietpickleball.vn/assets/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "android"
+  },
+  "appVersionCode": 1,
+  "appVersion": "1.0.0",
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://vietpickleball.vn/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://vietpickleball.vn/",
+  "minSdkVersion": 21,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": []
+}

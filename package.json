@@ -1,0 +1,6 @@
+{
+  "name": "vietpickleball-android",
+  "private": true,
+  "description": "Đóng gói VietPickleball.vn thành app Android (Trusted Web Activity) cho Google Play",
+  "dependencies": { "@bubblewrap/core": "1.25.0" }
+}
